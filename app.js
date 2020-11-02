@@ -63,7 +63,7 @@ for (var i = 0; i < boxes.length; i++) {
                     X_or_O += 1;
                 }
             }
-        } else if (X_or_O == 8) {
+        } else if (winCount === 0 && X_or_O == 8) {
             turn.innerHTML = "tie try again ";
         } else {
             replay()
