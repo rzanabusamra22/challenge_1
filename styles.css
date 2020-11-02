@@ -1,0 +1,39 @@
+/* it working */
+*{box-sizing: border-box;}
+
+.container{
+        width: 300px;
+        overflow: hidden;
+        margin: 50px auto 0 auto;
+        display: block;
+        text-align:center;
+        /* font-family:; */
+        color:BLUE;
+        font-size:25px;
+        background:grey;
+    }
+    
+.container .box{
+    float: left;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    /* transition: ; */
+    /* font-family: ; */
+    font-size: 85px;
+    text-align:center;
+    line-height:100px;
+    cursor: pointer;
+}
+
+button{
+    background-color: beige;
+    font-weight: bold;
+    border: 1px solid yellow;
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    font-size: 22px;
+    display: block;
+    margin: 10px auto;
+}
