@@ -17,15 +17,11 @@ var X_or_O = 0;
 var winCount = 0;
 
 function selectWinnerBoxes(b1, b2, b3) {
-    if (winCount === 0) {
-        b1.classList.add("win");
-        b2.classList.add("win");
-        b3.classList.add("win");
-        turn.innerHTML = b1.innerHTML + " WON";
-        winCount += 1;
-    } else if (winCount !== 0 && X_or_O === 7) {
-        turn.innerHTML = "tie play again";
-    }
+    b1.classList.add("win");
+    b2.classList.add("win");
+    b3.classList.add("win");
+    turn.innerHTML = b1.innerHTML + " WON";
+    winCount += 1;
 }
 //winning combinations posibilites
 //Horizantal 
@@ -51,7 +47,7 @@ function getWinner() {
 // onClick event 
 for (var i = 0; i < boxes.length; i++) {
     boxes[i].onclick = function () {
-        if (winCount === 0) {
+        if (X_or_O != 8 && winCount === 0) {
             if (this.innerHTML !== "X" && this.innerHTML !== "O") {
                 if (X_or_O % 2 === 0) {
                     console.log(X_or_O);
@@ -67,6 +63,8 @@ for (var i = 0; i < boxes.length; i++) {
                     X_or_O += 1;
                 }
             }
+        } else if (X_or_O == 8) {
+            turn.innerHTML = "tie try again ";
         } else {
             replay()
             location.reload()
