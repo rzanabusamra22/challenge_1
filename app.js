@@ -17,11 +17,15 @@ var X_or_O = 0;
 var winCount = 0;
 
 function selectWinnerBoxes(b1, b2, b3) {
-    b1.classList.add("win");
-    b2.classList.add("win");
-    b3.classList.add("win");
-    turn.innerHTML = b1.innerHTML + " WON";
-    winCount += 1;
+    if (winCount === 0) {
+        b1.classList.add("win");
+        b2.classList.add("win");
+        b3.classList.add("win");
+        turn.innerHTML = b1.innerHTML + " WON";
+        winCount += 1;
+    } else if (winCount !== 0 && X_or_O === 7) {
+        turn.innerHTML = "tie play again";
+    }
 }
 //winning combinations posibilites
 //Horizantal 
@@ -69,12 +73,13 @@ for (var i = 0; i < boxes.length; i++) {
         }
     };
 }
-//to reset
+//to reset || a new game
 function replay() {
     for (var i = 0; i < boxes.length; i++) {
         boxes[i].classList.remove("win");
         boxes[i].innerHTML = "";
         turn.innerHTML = "Play";
-        turn.style.fontSize = "25px";
+        X_or_O = 0;
+        winCount = 0;
     }
 }
