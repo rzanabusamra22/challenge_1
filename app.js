@@ -27,6 +27,7 @@ function selectWinnerBoxes(b1, b2, b3) {
 }
 
 function getWinner() {
+    //Horizantal 
     if (box1.innerHTML !== "" && box1.innerHTML === box2.innerHTML && box1.innerHTML === box3.innerHTML) { selectWinnerBoxes(box1, box2, box3) }
     if (box4.innerHTML !== "" && box4.innerHTML === box5.innerHTML && box4.innerHTML === box6.innerHTML) { selectWinnerBoxes(box4, box5, box6) }
 }
