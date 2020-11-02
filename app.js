@@ -14,12 +14,14 @@ var box8 = document.getElementById("box8");
 var box9 = document.getElementById("box9");
 
 var X_or_O = 0;
+var winCount = 0;
 
 function selectWinnerBoxes(b1, b2, b3) {
     b1.classList.add("win");
     b2.classList.add("win");
     b3.classList.add("win");
     turn.innerHTML = b1.innerHTML + " WON";
+    winCount += 1;
 }
 //winning combinations posibilites
 //Horizantal 
@@ -45,22 +47,26 @@ function getWinner() {
 // onClick event 
 for (var i = 0; i < boxes.length; i++) {
     boxes[i].onclick = function () {
-        if (this.innerHTML !== "X" && this.innerHTML !== "O") {
-            if (X_or_O % 2 === 0) {
-                console.log(X_or_O);
-                this.innerHTML = "X";
-                turn.innerHTML = "O Turn Now";
-                getWinner();
-                X_or_O += 1;
-            } else {
-                console.log(X_or_O);
-                this.innerHTML = "O";
-                turn.innerHTML = "X Turn Now";
-                getWinner();
-                X_or_O += 1;
+        if (winCount === 0) {
+            if (this.innerHTML !== "X" && this.innerHTML !== "O") {
+                if (X_or_O % 2 === 0) {
+                    console.log(X_or_O);
+                    this.innerHTML = "X";
+                    turn.innerHTML = "O Turn Now";
+                    getWinner();
+                    X_or_O += 1;
+                } else {
+                    console.log(X_or_O);
+                    this.innerHTML = "O";
+                    turn.innerHTML = "X Turn Now";
+                    getWinner();
+                    X_or_O += 1;
+                }
             }
+        } else {
+            replay()
+            location.reload()
         }
-
     };
 }
 //to reset
